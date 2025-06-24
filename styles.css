@@ -1,0 +1,133 @@
+/* ===== GLOBAL STYLES ===== */
+:root {
+  --primary-dark: #004165;
+  --primary-accent: #772432;
+  --gold: #F2DF74;
+  --white: #FFFFFF;
+  --black: #000000;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Fonts (loaded from Google Fonts in HTML head) */
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 900;
+  margin-top: 0;
+}
+
+/* ===== COMPONENTS ===== */
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 3rem;
+  background: rgba(0, 65, 101, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--gold);
+}
+
+.btn:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+/* Trainer Cards */
+.trainer-card {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.trainer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(to right, var(--primary-accent), var(--primary-dark));
+}
+
+.trainer-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  border: 5px solid var(--gold);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== SECTIONS ===== */
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-accent));
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+/* ===== UTILITIES ===== */
+.text-gold {
+  color: var(--gold);
+}
+
+.highlight {
+  background: rgba(242, 223, 116, 0.2);
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  border-left: 3px solid var(--gold);
+}
