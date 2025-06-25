@@ -403,51 +403,104 @@
   </div>
 </div>
 
-<!-- TESTIMONIAL SECTION -->
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!-- TESTIMONIAL SECTION -->
 <div style="padding: 6rem 1.5rem; background: linear-gradient(135deg, #004165, #772432); color: #FFF; position: relative;">
   <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 1;">
-    <h2 style="font-family: 'Montserrat', 'Arial', sans-serif; font-weight: 900; font-size: 2.2rem; margin-bottom: 3rem; color: #F2DF74;">
+    <h2 style="font-family: 'Montserrat', 'Arial', sans-serif; font-weight: 900; font-size: 2.2rem; margin-bottom: 1rem; color: #F2DF74;">
       What Leaders Are Saying
     </h2>
+    <p style="font-family: 'Poppins'; font-size: 1.2rem; color: rgba(255,255,255,0.8); margin-bottom: 3rem;">Real results from leaders in tech, healthcare, finance, and manufacturing.</p>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; text-align: left;">
       <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 2rem; border-radius: 15px; border-left: 4px solid #F2DF74;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
           <div style="width: 50px; height: 50px; border-radius: 50%; background: #EEE; overflow: hidden; margin-right: 1rem;">
-            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888') center/cover;"></div>
+            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1887') center/cover;"></div>
           </div>
           <div>
-            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Sarah K.</h4>
-            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Director, Tech Startup</p>
+            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Rahul Patel</h4>
+            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Product Director, InnovateTech (Tech)</p>
           </div>
         </div>
-        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"The 3P framework alone justified the time—I used it the next day to secure buy-in for a $50K project. No more rambling emails!"</p>
+        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"The 3P framework streamlined our sprint planning, cutting decision times by 25%. I pitched a $100k AI pilot in one meeting—game-changer!"</p>
       </div>
       
       <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 2rem; border-radius: 15px; border-left: 4px solid #F2DF74;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
           <div style="width: 50px; height: 50px; border-radius: 50%; background: #EEE; overflow: hidden; margin-right: 1rem;">
-            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1887') center/cover;"></div>
+            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1573497019940-1c737249d2d8?q=80&w=1887') center/cover;"></div>
           </div>
           <div>
-            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">James L.</h4>
-            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">VP, Fortune 500 Company</p>
+            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Dr. Maria Chen</h4>
+            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Chief Nursing Officer, Unity Medical Group (Healthcare)</p>
           </div>
         </div>
-        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"Our managers resolved conflicts 3x faster after the AEIOU method. The ROI was immediate—we’re sending our entire leadership team."</p>
+        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"AEIOU cut our staff disputes by 30%, saving $75k in turnover costs. Nurses now resolve tensions in minutes."</p>
       </div>
       
       <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 2rem; border-radius: 15px; border-left: 4px solid #F2DF74;">
         <div style="display: flex; align-items: center; margin-bottom: 1rem;">
           <div style="width: 50px; height: 50px; border-radius: 50%; background: #EEE; overflow: hidden; margin-right: 1rem;">
-            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?q=80&w=1887') center/cover;"></div>
+            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1573495804051-456d82211217?q=80&w=1887') center/cover;"></div>
           </div>
           <div>
-            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Priya M.</h4>
-            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Healthcare Executive</p>
+            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Emily Nguyen</h4>
+            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">VP of Compliance, Apex Financial (Finance)</p>
           </div>
         </div>
-        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"Finally, leadership training that doesn’t waste time. The Change Canvas helped us roll out new protocols with 80% less resistance."</p>
+        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"The Change Canvas made our compliance rollout 30% smoother, with 20% less pushback. Saved us weeks of delays."</p>
+      </div>
+      
+      <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(5px); padding: 2rem; border-radius: 15px; border-left: 4px solid #F2DF74;">
+        <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+          <div style="width: 50px; height: 50px; border-radius: 50%; background: #EEE; overflow: hidden; margin-right: 1rem;">
+            <div style="width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1887') center/cover;"></div>
+          </div>
+          <div>
+            <h4 style="font-family: 'Montserrat'; margin: 0; color: #F2DF74;">Carlos Rivera</h4>
+            <p style="font-family: 'Poppins'; margin: 0; font-size: 0.9rem; color: rgba(255,255,255,0.8);">Plant Manager, Precision Manufacturing (Manufacturing)</p>
+          </div>
+        </div>
+        <p style="font-family: 'Poppins'; font-style: italic; margin: 0; color: rgba(255,255,255,0.9);">"GROW coaching boosted our line workers’ engagement by 35%, cutting turnover by 15%. Productivity’s never been higher."</p>
       </div>
     </div>
     
