@@ -133,3 +133,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 {
 a:hover span { width: 100%; }
+nav a[href="index.html"] {
+  font-weight: 700; /* Bold for emphasis */
+  transition: all 0.3s ease;
+}
+
+nav a[href="index.html"]:hover {
+  color: var(--accent); /* Gold highlight */
+  transform: scale(1.05); /* Slight pop */
+}
