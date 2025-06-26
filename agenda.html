@@ -3,242 +3,145 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop Agenda | Lead With Impact</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <title>Lead With Impact - Agenda</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --gold: #F2DF74;
-      --navy: #004165;
-      --burgundy: #772432;
-      --white: #FFFFFF;
-      --black: #000000;
-    }
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--black);
-      margin: 0;
-      padding: 0;
-      background: var(--white);
-    }
-    .hero {
-      background: linear-gradient(135deg, var(--navy), var(--burgundy));
-      color: var(--white);
-      text-align: center;
-      padding: 4rem 2rem;
-    }
-    .agenda-container {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 2rem;
-    }
-    .time-block {
-      background: rgba(242, 223, 116, 0.1);
-      border-left: 4px solid var(--gold);
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 0 8px 8px 0;
-    }
-    .time {
-      font-weight: 600;
-      color: var(--burgundy);
-      margin-bottom: 0.5rem;
-    }
-    h1, h2, h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
-    }
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(to right, var(--gold), var(--white));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-    .facilitators {
-      font-style: italic;
-      margin-bottom: 2rem;
-    }
-    .activity {
-      background: var(--white);
-      padding: 1rem;
-      margin: 1rem 0;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    }
-    .takeaway {
-      background: rgba(0, 65, 101, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-      font-weight: 600;
-    }
-    .bonus-module {
-      background: var(--navy);
-      color: var(--white);
-      padding: 2rem;
-      margin-top: 3rem;
-      border-radius: 8px;
-    }
+    body { font-family: 'Poppins', sans-serif; color: #333; margin: 0; padding: 0; background: #f4f4f4; }
+    header { background: linear-gradient(to right, #772432, #004165); padding: 2rem; text-align: center; color: #FFF; }
+    header h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin: 0; }
+    header p { font-size: 1.2rem; }
+    nav { background: #FFF; padding: 1rem; text-align: center; }
+    nav a { margin: 0 1rem; color: #004165; text-decoration: none; font-weight: 600; }
+    nav a:hover { color: #772432; }
+    section { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+    h2 { font-family: 'Montserrat', sans-serif; font-size: 2rem; color: #772432; text-align: center; }
+    h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #004165; }
+    .session { background: #FFF; border-radius: 10px; padding: 1.5rem; margin-bottom: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .session p { margin: 0.5rem 0; }
+    .highlight { font-style: italic; color: #772432; }
+    .cta { text-align: center; margin: 2rem 0; }
+    .cta a { background: #F2DF74; color: #333; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: 600; }
+    .cta a:hover { background: #772432; color: #FFF; }
   </style>
 </head>
 <body>
-<!-- DYNAMIC HEADER WITH COUNTDOWN -->
-<div style="position: fixed; top: 0; left: 0; right: 0; padding: 1rem 3rem; display: flex; justify-content: space-between; align-items: center; z-index: 1000; background: rgba(0, 65, 101, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 5px 30px rgba(0,0,0,0.2);">
-  <!-- Logo linking back to home -->
-  <a href="index.html" style="font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.8rem; color: #F2DF74; display: flex; align-items: center; text-decoration: none;">
-    <span style="margin-right: 0.5rem;">⚡</span>LEAD WITH IMPACT
-  </a>
-  
-  <!-- COUNTDOWN TIMER -->
-  <div style="background: rgba(255,255,255,0.2); padding: 0.5rem 1.5rem; border-radius: 50px; color: #FFFFFF; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 1.1rem;">
-    ⏳ Next Session: <span style="color: #F2DF74; font-weight: 700;">14d 06h 23m</span>
-  </div>
-  
-  <!-- Navigation Links -->
-  <div>
-    <a href="index.html#about" style="margin: 0 1.5rem; font-family: 'Poppins', 'Arial', sans-serif; font-weight: 600; color: #FFFFFF; position: relative; transition: all 0.3s; text-decoration: none; font-size: 1.1rem;">Why Attend</a>
-   <a href="agenda.html" style="margin: 0 1.5rem; font-family: 'Poppins', 'Arial', sans-serif; font-weight: 600; color: #FFFFFF; position: relative; transition: all 0.3s; text-decoration: none; font-size: 1.1rem; border-bottom: 2px solid #F2DF74;">Agenda</a>
-    
-    <a href="index.html#trainers" style="margin: 0 1.5rem; font-family: 'Poppins', 'Arial', sans-serif; font-weight: 600; color: #FFFFFF; position: relative; transition: all 0.3s; text-decoration: none; font-size: 1.1rem;">Trainers</a>
-    <a href="index.html#register" style="background: #F2DF74; color: #004165; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 700; margin-left: 1rem; text-decoration: none;">Reserve Seat</a>
-  </div>
-</div>
-  <div class="hero">
-    <h1>Lead With Impact</h1>
-    <h2>Essential Skills for Today’s Workplace</h2>
-    <p class="facilitators">Facilitated by Leo Smith, Leadership Expert, and Matt Villella, Organizational Leadership Specialist</p>
-    <p><strong>Date:</strong> [Insert Date] | <strong>Duration:</strong> 4 Hours</p>
-  </div>
-
-  <div class="agenda-container">
+  <header>
+    <h1>⚡ LEAD WITH IMPACT</h1>
+    <p>⏳ Next Session: 14d 06h 23m</p>
+  </header>
+  <nav>
+    <a href="#why-attend">Why Attend</a>
+    <a href="#agenda">Agenda</a>
+    <a href="#trainers">Trainers</a>
+    <a href="#reserve">Reserve Seat</a>
+  </nav>
+  <section>
+    <h2>Lead With Impact</h2>
+    <p style="text-align: center; font-size: 1.2rem;">Essential Skills for Today’s Workplace</p>
+    <p style="text-align: center; font-weight: 600;">Facilitated by Leo Smith, Leadership Communication Expert, and Matt Villella, Community Leadership Specialist</p>
+    <p style="text-align: center;">Date: [Insert Date] | Duration: 4 Hours | Limited to 20 Participants</p>
+  </section>
+  <section id="agenda">
     <h2>Workshop Agenda</h2>
-    <p><em>Objective:</em> Equip you with high-impact leadership and communication skills to excel in dynamic, diverse workplaces.</p>
+    <p style="text-align: center; font-size: 1.1rem;">Objective: Master the 3C Leadership Framework (Communicate, Collaborate, Catalyze) to drive team success in dynamic workplaces. Take home a 30-day action plan and exclusive workbook.</p>
 
-    <!-- Agenda Blocks -->
-    <div class="time-block">
-      <div class="time">9:00 AM – 9:15 AM | Welcome and Ignition</div>
-      <h3>Spark Connection</h3>
-      <div class="activity">
-        <p><strong>Dynamic Opening:</strong> Leo and Matt share breakthrough leadership moments that changed teams.</p>
-        <p><strong>Lightning Round:</strong> Pair up to share your leadership superpower.</p>
-      </div>
-      <div class="takeaway">
-        💡 <em>Leadership isn't about position—it's about connection and practice.</em>
-      </div>
-    </div>
-
-    <div class="time-block">
-      <div class="time">9:15 AM – 10:00 AM | Authentic Leadership Vision</div>
-      <h3>Define Your Leadership Brand</h3>
-      <div class="activity">
-        <p><strong>Interactive Presentation:</strong> Matt reveals how values-driven leadership boosts team performance by 30%.</p>
-        <p><strong>Self-Discovery:</strong> Complete our proprietary Leadership DNA assessment.</p>
-        <p><strong>Story Slam:</strong> Craft and deliver a 60-second "Leadership Manifesto."</p>
-      </div>
-      <div class="takeaway">
-        💡 <em>Authenticity isn't about being liked—it's about being trusted.</em>
-      </div>
-    </div>
-
-    <!-- Continue with other time blocks in same format -->
-    <!-- ===== 10:00 AM – 10:45 AM ===== -->
-<div class="time-block">
-  <div class="time">10:00 AM – 10:45 AM | Persuasive Communication</div>
-  <h3>The 3P Influence Engine</h3>
-  <div class="activity">
-    <p><strong>Masterclass:</strong> Leo reveals the neuroscience-backed formula to move people from *"Maybe"* to *"Let’s go!"*</p>
-    <p><strong>Power Drill:</strong> Deliver a 60-second pitch to launch a new project (we’ll vote on the most compelling!).</p>
-    <p><strong>Hot Seat Feedback:</strong> Small groups refine each other’s messaging using our Impact Rubric.</p>
-  </div>
-  <div class="takeaway">
-    💡 <em>Persuasion isn’t manipulation—it’s aligning your idea with their values.</em>
-  </div>
-</div>
-
-<!-- ===== 10:45 AM – 11:15 AM ===== -->
-<div class="time-block" style="background: rgba(0, 65, 101, 0.05);">
-  <div class="time">10:45 AM – 11:15 AM | Energizing Break</div>
-  <h3>Connect & Reflect</h3>
-  <div class="activity">
-    <p><strong>Guided Networking:</strong> Use our conversation prompts (e.g., *"What’s one leadership hack you swear by?"*).</p>
-    <p><strong>Fuel Up:</strong> Artisan coffee and brain-boosting snacks provided.</p>
-  </div>
-  <div class="takeaway">
-    💡 <em>The best ideas often spark during informal exchanges.</em>
-  </div>
-</div>
-
-<!-- ===== 11:15 AM – 12:00 PM ===== -->
-<div class="time-block">
-  <div class="time">11:15 AM – 12:00 PM | Inclusive Team Leadership</div>
-  <h3>Conflict → Collaboration</h3>
-  <div class="activity">
-    <p><strong>Case Study:</strong> Matt dissects how he united a 5-generation team at Pfizer.</p>
-    <p><strong>AEIOU Role-Play:</strong> Tackle a hybrid team conflict (remote vs. in-office tensions).</p>
-    <p><strong>Debrief:</strong> Share *"What worked?"* and *"What felt forced?"*</p>
-  </div>
-  <div class="takeaway">
-    💡 <em>Inclusion isn’t about harmony—it’s about leveraging tension productively.</em>
-  </div>
-</div>
-
-<!-- ===== 12:00 PM – 12:45 PM ===== -->
-<div class="time-block">
-  <div class="time">12:00 PM – 12:45 PM | Leading Through Change</div>
-  <h3>The Change Canvas</h3>
-  <div class="activity">
-    <p><strong>War Story:</strong> Leo shares how he navigated a 200-person layoff with empathy.</p>
-    <p><strong>Build Your Plan:</strong> Use our 1-page template for a real change you’re facing.</p>
-    <p><strong>Pitch Clinic:</strong> Present your plan in 60 seconds—peers add *"One thing I’d steal."*</p>
-  </div>
-  <div class="takeaway">
-    💡 <em>People don’t resist change—they resist being changed.</em>
-  </div>
-</div>
-
-<!-- ===== 12:45 PM – 1:00 PM ===== -->
-<div class="time-block" style="border-left: 4px solid var(--burgundy);">
-  <div class="time">12:45 PM – 1:00 PM | Closing Ignition</div>
-  <h3>Commit to Action</h3>
-  <div class="activity">
-    <p><strong>Lightning Recap:</strong> Key tools visualized in a shareable infographic.</p>
-    <p><strong>Accountability Pairs:</strong> Swap contact info and commit to one 7-day action.</p>
-    <p><strong>Feedback Sprint:</strong> 3-question pulse check (we read these live!).</p>
-  </div>
-  <div class="takeaway">
-    💡 <em>Leadership isn’t a seminar—it’s what you do Monday morning.</em>
-  </div>
-</div>
-
-    <div class="bonus-module">
-      <h2 style="color: var(--gold);">BONUS: 5-Minute GROW Coaching Accelerator</h2>
-      <p><em>Transform managers into coaches—boost engagement by 25% in 10-minute conversations.</em></p>
-      
-      <h3>🔥 The GROW Framework</h3>
-      <div class="activity" style="background: rgba(255,255,255,0.1);">
-        <p><strong>Goal:</strong> "Increase client retention by 10%" (Not: "Do better")</p>
-        <p><strong>Reality:</strong> "What's working? What's not?" (Powerful questions)</p>
-        <p><strong>Options:</strong> Brainstorm 3 solutions—no idea is off-limits</p>
-        <p><strong>Will:</strong> "I'll implement check-ins by Friday" (Specific commitment)</p>
-      </div>
-
-      <h3>⏱️ Rapid-Fire Practice</h3>
-      <p>Role-play real scenarios:</p>
+    <div class="session">
+      <h3>9:00 AM – 9:15 AM | Welcome and Ignition</h3>
+      <p><strong>Spark Connection with the 3C Framework</strong></p>
       <ul>
-        <li>Motivating a remote engineer stuck on a project</li>
-        <li>Coaching a nurse to improve patient communication</li>
-        <li>Helping a salesperson hit Q3 targets</li>
+        <li>Dynamic Opening: Leo and Matt share how the 3C Framework transformed Toastmasters clubs, boosting membership by 50%.</li>
+        <li>Lightning Round: Pair up to share your leadership challenge, setting the stage for collaboration.</li>
       </ul>
-
-      <div class="takeaway" style="background: rgba(242, 223, 116, 0.2); color: var(--gold);">
-        💡 <em>60% of emerging leaders fail—GROW turns managers into talent multipliers.</em>
-      </div>
+      <p class="highlight">💡 Leadership starts with connection—ignite it with purpose.</p>
     </div>
 
-    <div style="text-align: center; margin: 3rem 0;">
-      <a href="#register" style="background: var(--gold); color: var(--black); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block;">Reserve Your Spot</a>
+    <div class="session">
+      <h3>9:15 AM – 10:00 AM | Authentic Leadership Vision</h3>
+      <p><strong>Communicate: Define Your Leadership Brand</strong></p>
+      <ul>
+        <li>Interactive Presentation: Matt reveals how values-driven leadership, used in Thunder Bay’s community initiatives, boosts team trust by 30%.</li>
+        <li>Self-Discovery: Complete the 3C Leadership DNA Assessment to uncover your unique leadership style.</li>
+        <li>Story Slam: Craft a 60-second Leadership Manifesto, guided by Leo’s persuasive speaking techniques.</li>
+      </ul>
+      <p class="highlight">💡 Authenticity builds trust—your brand sets the tone.</p>
     </div>
-  </div>
+
+    <div class="session">
+      <h3>10:00 AM – 10:45 AM | Persuasive Communication</h3>
+      <p><strong>Communicate: Master the 3C Influence Engine</strong></p>
+      <ul>
+        <li>Masterclass: Leo shares his Toastmasters-honed, neuroscience-backed 3C Influence Engine, used to mentor 1,000+ leaders.</li>
+        <li>Power Drill: Deliver a 60-second pitch to launch a project, with real-time feedback from peers.</li>
+        <li>Hot Seat Feedback: Refine your pitch using our 3C Impact Rubric in small groups of 4.</li>
+      </ul>
+      <p class="highlight">💡 Persuasion aligns ideas with action—move teams forward.</p>
+    </div>
+
+    <div class="session">
+      <h3>10:45 AM – 11:15 AM | Energizing Break</h3>
+      <p><strong>Connect & Reflect</strong></p>
+      <ul>
+        <li>Guided Networking: Use 3C-themed prompts (e.g., “What’s your boldest leadership move?”).</li>
+        <li>Fuel Up: Enjoy artisan coffee and brain-boosting snacks.</li>
+      </ul>
+      <p class="highlight">💡 Connections spark ideas—build your leadership network.</p>
+    </div>
+
+    <div class="session">
+      <h3>11:15 AM – 12:00 PM | Inclusive Team Leadership</h3>
+      <p><strong>Collaborate: Turn Conflict into Opportunity</strong></p>
+      <ul>
+        <li>Case Study: Matt shares how his 3C Collaboration strategies united diverse teams in Thunder Bay’s Sister Cities initiative.</li>
+        <li>AEIOU Role-Play: Tackle a hybrid team conflict (e.g., remote vs. in-office) using the 3C Collaboration Toolkit.</li>
+        <li>Debrief: Share insights and refine strategies with peers.</li>
+      </ul>
+      <p class="highlight">💡 Collaboration leverages tension for stronger teams.</p>
+    </div>
+
+    <div class="session">
+      <h3>12:00 PM – 12:45 PM | Leading Through Change</h3>
+      <p><strong>Catalyze: Drive Impact with the 3C Change Canvas</strong></p>
+      <ul>
+        <li>War Story: Leo shares how his 3C Change Canvas guided a 200-person team through a major transition with empathy.</li>
+        <li>Build Your Plan: Create a 1-page 3C Change Plan for a real challenge, using our exclusive template.</li>
+        <li>Pitch Clinic: Present your plan in 60 seconds; peers share “One idea I’d steal.”</li>
+      </ul>
+      <p class="highlight">💡 Catalyze change by leading with clarity and empathy.</p>
+    </div>
+
+    <div class="session">
+      <h3>12:45 PM – 1:00 PM | Closing Ignition</h3>
+      <p><strong>Commit to Action</strong></p>
+      <ul>
+        <li>Lightning Recap: Receive a 3C Leadership Infographic summarizing key tools.</li>
+        <li>Accountability Pairs: Swap contacts and commit to a 7-day 3C action step.</li>
+        <li>Feedback Sprint: Complete a 3-question pulse check for immediate insights.</li>
+      </ul>
+      <p class="highlight">💡 Leadership is action—start Monday with impact.</p>
+    </div>
+
+    <div class="session">
+      <h3>BONUS: 5-Minute 3C Coaching Accelerator</h3>
+      <p><strong>Catalyze: Transform Managers into Coaches</strong></p>
+      <p>Boost team engagement by 25% with our 3C Coaching Accelerator, adapted from the GROW model.</p>
+      <p><strong>🔥 The 3C Coaching Framework</strong></p>
+      <ul>
+        <li>Connect: Set a clear goal (e.g., “Improve team retention by 10%”).</li>
+        <li>Collaborate: Ask powerful questions to uncover realities and options.</li>
+        <li>Catalyze: Secure a specific commitment (e.g., “Weekly check-ins by Friday”).</li>
+      </ul>
+      <p><strong>⏱️ Rapid-Fire Practice</strong></p>
+      <ul>
+        <li>Role-play scenarios: Motivate a remote engineer, coach a nurse on patient communication, or help a salesperson hit Q3 targets.</li>
+        <li>Take home our 3C Coaching Playbook for ongoing use.</li>
+      </ul>
+      <p class="highlight">💡 Coaching turns managers into talent multipliers.</p>
+    </div>
+
+    <div class="cta">
+      <p>Exclusive: Only 20 seats for personalized coaching. Includes 30-day access to our 3C Leadership Portal.</p>
+      <a href="#reserve">Reserve Your Spot</a>
+    </div>
+  </section>
 </body>
 </html>
