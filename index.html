@@ -207,14 +207,14 @@
       border-color: var(--light);
     }
     
-    .benefits, .modules, .trainers, .testimonials, .stats { 
+    .benefits { 
       display: flex; 
       flex-wrap: wrap; 
       gap: 1.5rem; 
       justify-content: center; 
     }
     
-    .benefit, .module, .trainer, .testimonial { 
+    .benefit { 
       background: var(--light); 
       border-radius: 10px; 
       padding: 2rem; 
@@ -225,7 +225,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
-    .benefit:hover, .module:hover, .trainer:hover, .testimonial:hover {
+    .benefit:hover {
       transform: translateY(-10px);
       box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
@@ -239,33 +239,6 @@
       object-fit: cover;
       border: 3px solid var(--accent);
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    
-    .stat { 
-      text-align: center; 
-      flex: 1; 
-      min-width: 150px;
-      padding: 1.5rem;
-      background: var(--light);
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: all 0.3s ease;
-    }
-    
-    .stat:hover {
-      background: var(--primary);
-      color: var(--light);
-    }
-    
-    .stat:hover h3 {
-      color: var(--light);
-    }
-    
-    .stat h3 {
-      font-size: 2.5rem;
-      margin: 0;
-      color: var(--primary);
-      transition: all 0.3s ease;
     }
     
     .highlight { 
@@ -350,7 +323,169 @@
     .pulse {
       animation: pulse 2s infinite;
     }
-    
+
+    /* ===== REDESIGNED MODULES SECTION ===== */
+    .modules-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 0 auto;
+      max-width: 1200px;
+    }
+
+    .module-card {
+      background: var(--light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      border-top: 5px solid var(--accent);
+    }
+
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .module-header {
+      background: var(--secondary);
+      color: var(--light);
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    .module-number {
+      position: absolute;
+      top: -20px;
+      left: 20px;
+      background: var(--accent);
+      color: var(--dark);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    .module-content {
+      padding: 1.5rem;
+    }
+
+    .module-highlight {
+      background: rgba(242, 223, 116, 0.2);
+      border-left: 4px solid var(--accent);
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* ===== REDESIGNED STATS SECTION ===== */
+    .stats-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin: 2rem auto;
+      max-width: 1000px;
+    }
+
+    .stat-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .stat-value {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 1rem 0;
+      position: relative;
+      display: inline-block;
+    }
+
+    .stat-value::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* ===== REDESIGNED TESTIMONIALS SECTION ===== */
+    .testimonials-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem auto;
+    }
+
+    .testimonial-card {
+      background: var(--light);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(119, 36, 50, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      color: var(--primary);
+      text-align: right;
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       header h1 {
@@ -373,30 +508,18 @@
       .countdown {
         flex-wrap: wrap;
       }
+
+      .modules-container,
+      .stats-container,
+      .testimonials-container {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
   <header class="animate__animated animate__fadeIn">
     <h1>⚡ 3C Leadership: Communicate, Collaborate, Catalyze</h1>
-   
-    <!-- Comment out the countdown timer by wrapping it like this -->
-  <!--
-    <div class="countdown">
-      <div class="countdown-item">
-        <span class="countdown-number" id="days">14</span>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number" id="hours">06</span>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-item">
-        <span class="countdown-number" id="minutes">23</span>
-        <span class="countdown-label">Minutes</span>
-      </div>
-    </div>
-    -->
   </header>
   <nav>
     <a href="#why-attend">Why Attend</a>
@@ -435,27 +558,57 @@
       </div>
     </div>
   </section>
-  <section class="modules">
+  <section>
     <h2>Your 4-Hour Leadership Accelerator</h2>
-    <div class="module">
-      <h3>1. Authentic Leadership Brand</h3>
-      <p>Define your leadership style with the 3C Leadership DNA Assessment, crafting a 60-second manifesto that aligns teams.</p>
-      <p class="highlight">"Increased team trust by 30% using Matt's values-driven approach." — Nonprofit Director</p>
-    </div>
-    <div class="module">
-      <h3>2. 3C Influence Engine</h3>
-      <p>Master Leo's neuroscience-backed framework to pitch ideas and motivate teams in 60 seconds.</p>
-      <p class="highlight">Drill: Deliver a work pitch with live feedback from peers.</p>
-    </div>
-    <div class="module">
-      <h3>3. Conflict → Collaboration</h3>
-      <p>Turn tension into opportunity with the 3C Collaboration Toolkit, tested in Thunder Bay's community initiatives.</p>
-      <p class="highlight">Role-play: Resolve a hybrid team conflict in 10 minutes.</p>
-    </div>
-    <div class="module">
-      <h3>4. 3C Change Canvas</h3>
-      <p>Build a 1-page playbook to lead change without resistance, using Leo's empathetic strategies.</p>
-      <p class="highlight">Template: "Goal / Team Fear / Quick Win"—take home our worksheet.</p> 
+    <div class="modules-container">
+      <div class="module-card">
+        <div class="module-number">1</div>
+        <div class="module-header">
+          <h3>Authentic Leadership Brand</h3>
+        </div>
+        <div class="module-content">
+          <p>Define your leadership style with the 3C Leadership DNA Assessment, crafting a 60-second manifesto that aligns teams.</p>
+          <div class="module-highlight">
+            "Increased team trust by 30% using Matt's values-driven approach." — Nonprofit Director
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-number">2</div>
+        <div class="module-header">
+          <h3>3C Influence Engine</h3>
+        </div>
+        <div class="module-content">
+          <p>Master Leo's neuroscience-backed framework to pitch ideas and motivate teams in 60 seconds.</p>
+          <div class="module-highlight">
+            Drill: Deliver a work pitch with live feedback from peers.
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-number">3</div>
+        <div class="module-header">
+          <h3>Conflict → Collaboration</h3>
+        </div>
+        <div class="module-content">
+          <p>Turn tension into opportunity with the 3C Collaboration Toolkit, tested in Thunder Bay's community initiatives.</p>
+          <div class="module-highlight">
+            Role-play: Resolve a hybrid team conflict in 10 minutes.
+          </div>
+        </div>
+      </div>
+      <div class="module-card">
+        <div class="module-number">4</div>
+        <div class="module-header">
+          <h3>3C Change Canvas</h3>
+        </div>
+        <div class="module-content">
+          <p>Build a 1-page playbook to lead change without resistance, using Leo's empathetic strategies.</p>
+          <div class="module-highlight">
+            Template: "Goal / Team Fear / Quick Win"—take home our worksheet.
+          </div>
+        </div>
+      </div>
     </div>
   </section>
   <section id="trainers">
@@ -490,23 +643,25 @@
       <p>⚡ <strong>High-Energy Delivery</strong>: Interactive, fast-paced, no PowerPoint overload.</p>
     </div>
   </section>
-  <section class="stats">
+  <section>
     <h2>Leaders Who've Transformed Their Teams</h2>
-    <div class="stat">
-      <h3>85%</h3>
-      <p>Applied a 3C tool within 1 week</p>
-    </div>
-    <div class="stat">
-      <h3>4.5x</h3>
-      <p>More confident leading change</p>
-    </div>
-    <div class="stat">
-      <h3>60%</h3>
-      <p>Faster team conflict resolution</p>
-    </div>
-    <div class="stat">
-      <h3>95%</h3>
-      <p>Would recommend to peers</p>
+    <div class="stats-container">
+      <div class="stat-card">
+        <div class="stat-value">85%</div>
+        <p>Applied a 3C tool within 1 week</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">4.5x</div>
+        <p>More confident leading change</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">60%</div>
+        <p>Faster team conflict resolution</p>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">95%</div>
+        <p>Would recommend to peers</p>
+      </div>
     </div>
   </section>
   <section id="reserve">
@@ -521,19 +676,21 @@
       <p>⚡ Limited to 20 participants for personalized coaching</p>
     </div>
   </section>
-  <section class="testimonials">
+  <section>
     <h2>What Leaders Are Saying</h2>
-    <div class="testimonial">
-      <p>"The 3C Influence Engine helped me pitch a new initiative to my board, securing approval in one meeting!"</p>
-      <p><strong>Emily T.</strong>, Nonprofit Manager</p>
-    </div>
-    <div class="testimonial">
-      <p>"Matt's collaboration strategies transformed our hybrid team dynamics—conflicts now resolve 50% faster."</p>
-      <p><strong>Mark R.</strong>, Manufacturing Supervisor</p>
-    </div>
-    <div class="testimonial">
-      <p>"Leo's Change Canvas guided our team through a major transition with 70% less resistance."</p>
-      <p><strong>Anna L.</strong>, Education Director</p>
+    <div class="testimonials-container">
+      <div class="testimonial-card">
+        <p class="testimonial-text">The 3C Influence Engine helped me pitch a new initiative to my board, securing approval in one meeting!</p>
+        <p class="testimonial-author">Emily T., Nonprofit Manager</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Matt's collaboration strategies transformed our hybrid team dynamics—conflicts now resolve 50% faster.</p>
+        <p class="testimonial-author">Mark R., Manufacturing Supervisor</p>
+      </div>
+      <div class="testimonial-card">
+        <p class="testimonial-text">Leo's Change Canvas guided our team through a major transition with 70% less resistance.</p>
+        <p class="testimonial-author">Anna L., Education Director</p>
+      </div>
     </div>
   </section>
   <footer>
