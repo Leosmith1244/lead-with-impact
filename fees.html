@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3C Leadership - Program Fees</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+      --primary: #772432;
+      --secondary: #004165;
+      --accent: #F2DF74;
+      --light: #FFF;
+      --dark: #333;
+      --gray: #f4f4f4;
+    }
+    
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      color: var(--dark); 
+      margin: 0; 
+      padding: 0; 
+      background: var(--gray);
+      scroll-behavior: smooth;
+    }
+    
+    header { 
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+      padding: 2rem; 
+      text-align: center; 
+      color: var(--light); 
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+      opacity: 0.3;
+    }
+    
+    header h1 { 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 2.5rem; 
+      margin: 0; 
+      position: relative;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    nav { 
+      background: var(--light); 
+      padding: 1rem; 
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    nav a { 
+      margin: 0 1rem; 
+      color: var(--secondary); 
+      text-decoration: none; 
+      font-weight: 600;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    
+    nav a:hover { 
+      color: var(--primary); 
+    }
+    
+    nav a:hover::after {
+      width: 100%;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    h2 { 
+      font-family: 'Montserrat', sans-serif; 
+      font-size: 2rem; 
+      color: var(--primary); 
+      text-align: center;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    
+    h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--accent);
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+    
+    h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    /* Fees Section Styles */
+    .fees-hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: var(--light);
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .benefit-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(5px);
+      padding: 2rem;
+      border-radius: 10px;
+      border-top: 4px solid var(--accent);
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .pricing-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      border-top: 5px solid var(--accent);
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+    
+    .price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      color: var(--primary);
+      margin: 1rem 0;
+    }
+    
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+    }
+    
+    .testimonial-card {
+      background: var(--light);
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(119, 36, 50, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 1rem;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+    }
+    
+    .cta-button {
+      background: var(--accent);
+      color: var(--dark);
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: bold;
+      text-decoration: none;
+      display: inline-block;
+      margin: 2rem 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .cta-button:hover {
+      background: var(--primary);
+      color: var(--light);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    
+    footer {
+      background: var(--secondary);
+      color: var(--light);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+    
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="animate__animated animate__fadeIn">
+    <h1>3C Leadership: Program Fees</h1>
+  </header>
+  
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="#fees">Fees</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  
+  <main>
+    <section class="fees-hero">
+      <div class="container">
+        <h2>Investment in Leadership Excellence</h2>
+        <p>Transform your team with 3C Leadership—proven tools, measurable results, trusted by regional leaders in education, manufacturing, and community organizations.</p>
+      </div>
+    </section>
+    
+    <section class="container">
+      <h2>Benefits of 3C Leadership</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Boost Engagement</h3>
+          <p>3C Framework drives 35% higher engagement, tackling $1.9T in global disengagement costs.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Master Change</h3>
+          <p>Change Canvas boosts change success by 30%, streamlining innovation and compliance.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Reduce Conflict</h3>
+          <p>Collaboration Toolkit cuts team conflicts by 20%, saving $75k in turnover costs.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Retain Talent</h3>
+          <p>Training boosts retention by 29%, saving $150k per manager.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="container">
+      <h2>Pricing Options</h2>
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <h3>Corporate Team Rate</h3>
+          <div class="price">$12,500</div>
+          <p>For up to 15 participants ($800 per additional participant up to 20). Includes:</p>
+          <ul>
+            <li>Pre-event consultation</li>
+            <li>Tailored scenarios</li>
+            <li>Digital playbook</li>
+            <li>30-day follow-up resources</li>
+          </ul>
+          <p><strong>Add-On:</strong> $500 for personalized post-seminar toolkit (assessments, templates)</p>
+        </div>
+        <div class="pricing-card">
+          <h3>Individual Leader Rate</h3>
+          <div class="price">$1,250</div>
+          <p>4-hour intensive training includes:</p>
+          <ul>
+            <li>3C Framework mastery</li>
+            <li>Collaboration Toolkit</li>
+            <li>Change Canvas</li>
+            <li>Workbook & 30-day portal access</li>
+          </ul>
+          <p><strong>Add-On:</strong> $500 for personalized post-seminar toolkit</p>
+        </div>
+        <div class="pricing-card">
+          <h3>Ongoing Coaching</h3>
+          <div class="price">$750/hour or $5,000</div>
+          <p>3-month coaching package includes:</p>
+          <ul>
+            <li>1:1 virtual sessions</li>
+            <li>Email support</li>
+            <li>360-degree feedback</li>
+            <li>Bi-weekly 60-minute sessions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    
+    <section class="container">
+      <h2>What Leaders Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The 3C Framework cut decision times by 25%, securing a $100k pilot in one meeting. Worth every penny!"</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=1887" alt="Rahul Patel" class="author-avatar">
+              <div>
+                <h4>Rahul Patel</h4>
+                <p>Product Director, InnovateTech</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Collaboration Toolkit cut disputes by 30%, saving $75k in turnover costs. Teams resolve tensions in minutes."</p>
+            <div class="testimonial-author">
+              <img src="https://images.unsplash.com/photo-1573497019940-1c737249d2d8?q=80&w=1887" alt="Dr. Maria Chen" class="author-avatar">
+              <div>
+                <h4>Dr. Maria Chen</h4>
+                <p>Chief Nursing Officer, Unity Medical</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="container" style="text-align: center;">
+      <a href="#register" class="cta-button">Reserve Your Seat</a>
+      <p>Limited to 20 participants for personalized coaching</p>
+    </section>
+  </main>
+  
+  <footer>
+    <h2>3C Leadership</h2>
+    <p><a href="index.html">Home</a> <a href="agenda.html">Agenda</a> <a href="#fees">Fees</a> <a href="#contact">Contact</a></p>
+    <p>© 2025 Leo Smith & Matt Villella. All rights reserved.</p>
+  </footer>
+</body>
+</html>
